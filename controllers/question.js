@@ -1,7 +1,7 @@
 MessageBoard.QuestionController = Ember.ObjectController.extend({
   isEditing: false,
   isAnswering: false,
-
+  
   actions: {
 
     addAnswer: function() {
@@ -11,7 +11,7 @@ MessageBoard.QuestionController = Ember.ObjectController.extend({
 
     deleteAnswer: function(answer) {
 
-     if (confirm('Are you sure you want to delete this answer?')){
+     if (confirm('Are you sure?')){
        var question = this.get('model');
        question.get('answers').removeObject(answer);
        question.save();
