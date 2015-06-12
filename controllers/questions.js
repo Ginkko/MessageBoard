@@ -9,6 +9,7 @@ MessageBoard.QuestionsController = Ember.ArrayController.extend({
     addQuestion: function() {
       var newQuestion = this.store.createRecord('question', {
         title: this.get('title'),
+        user: this.get('user'),
         text: this.get('text')
       });
       newQuestion.save();
