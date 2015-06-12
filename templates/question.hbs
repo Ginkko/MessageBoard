@@ -36,7 +36,7 @@
 {{else}}
   <ul>
     {{#each answer in answers}}
-      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}}</li><span class="glyphicon glyphicon-remove-sign" {{action "deleteAnswer" answer}}></span>
+      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}} <span class="glyphicon glyphicon-remove-sign red" {{action "deleteAnswer" answer}}></span></li>
     {{/each}}
   </ul>
   <button class='btn btn-success' {{action 'addAnswer'}}>Answer!</button>
