@@ -1,7 +1,23 @@
 MessageBoard.QuestionController = Ember.ObjectController.extend({
   isEditing: false,
+  isAnswering: false,
 
   actions: {
+
+    addAnswer: function() {
+      this.set('isAnswering', true)
+      this.transitionToRoute('answer');
+    },
+
+    deleteAnswer: function(answer) {
+     var question = this.get('model');
+     question.get('answers').removeObject(answer);
+     question.save();
+     answer.deleteRecord();
+     answer.save();
+     this.transitionToRoute('question', this.get('id'));
+   },
+
 
     editQuestion: function() {
 

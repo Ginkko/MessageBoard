@@ -25,8 +25,21 @@
   <h2>{{title}}</h2>
   <h4>Asked by: {{user}}</h4>
   <p>{{text}}</p>
-  
+
   <button class="btn btn-info" {{action "editQuestion"}}>Edit</button>
   <button class="btn btn-danger" {{action "deleteQuestion"}}>Delete</button>
 
 {{/if}}
+
+{{#if isAnswering}}
+
+{{else}}
+  <ul>
+    {{#each answer in answers}}
+      <li><span STYLE='font-weight: bold'>{{answer.user}}</span>: {{answer.text}}</li><span class="glyphicon glyphicon-remove-sign" {{action "deleteAnswer" answer}}></span>
+    {{/each}}
+  </ul>
+  <button class='btn btn-success' {{action 'addAnswer'}}>Answer!</button>
+{{/if}}
+
+{{outlet}}
