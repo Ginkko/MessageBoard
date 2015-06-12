@@ -17,8 +17,8 @@
   </form>
 {{else}}
   <ul>
-    {{#each}}
-      <li>{{title}}</li>
+    {{#each question in model}}
+      <li>{{#link-to 'question' question}}{{question.title}}{{/link-to}}</li>
     {{/each}}
   </ul>
   <button class="btn btn-info" {{action "newQuestion"}}>New Question</button>
